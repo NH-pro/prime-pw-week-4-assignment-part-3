@@ -7,7 +7,8 @@ const maxItems = 5;
 // End Global Variables.
 
 function addItem(item){
-    if (isFull() === false){
+    let result = isFull();
+    if (result === false){
         basket.push(item);
         return true;
     }
@@ -23,15 +24,21 @@ console.log('This should show true if carrot was added to the basket array:', ad
 console.log(`This will show everything in our basket so far: ${basket.join(' and ')}`);
 // Testing out code by adding several new items into our basket array and loging out the basket itself.
 
+console.log('This should show true if banana was added to the basket array:', addItem('banana'));
+console.log('This should show true if cherry was added to the basket array:', addItem('cherry'));
+console.log('This should show false if watermelon was not added to the basket array:', addItem('watermelon'));
+console.log('This will show the max amount of items in our basket, aka no watermelon:', basket);
+// Testing stretch goal of updating addItem(item) function. Here we add more items until we add beyond the maxItem limit of 5 and see if our function stops us from adding any more.
+
 function listItems(){
-    console.log('Below is a list of the items in your basket:');
-    for (items of basket){
+    for (let items of basket){
         console.log(items);
     }
 }
 // End of listItems() function.
 
 listItems();
+console.log('Above is a list of the items in your basket:');
 // Testing out listItems() function by executing it to see if each items in the basket array are loging out on seperate lines.
 
 function empty(){
