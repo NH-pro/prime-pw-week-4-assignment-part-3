@@ -67,3 +67,17 @@ addItem('milk');
 addItem('cheese');
 console.log('Should show true if basket contents is greater than or equal to maxItems:', isFull());
 // Testing out isFull() function to see if it returns false when basket is empty and true if full.
+
+function removeItem(item){
+    if (basket.indexOf(item) >= 0){
+        let target = basket.indexOf(item);
+        basket.splice(target,1,);
+    }
+    else{
+        return null;
+    }
+}
+console.log('Shows basket with grapes:', basket);
+removeItem('grapes');
+console.log('Should show basket with grapes removed from array by using removeItem function:', basket);
+console.log('Should show null when trying to remove an item not in basket:',removeItem('dirt'));
