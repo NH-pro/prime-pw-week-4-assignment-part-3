@@ -3,11 +3,17 @@ console.log('***** Cart Functions *****');
 // We want to see how you are testing your code!!!
 
 let basket = [];
+const maxItems = 5;
 // End Global Variables.
 
 function addItem(item){
-    basket.push(item);
-    return true;
+    if (isFull() === false){
+        basket.push(item);
+        return true;
+    }
+    else{
+        return false;
+    }
 }
 // End of addItem(item) function.
 
@@ -37,3 +43,20 @@ console.log('Showing that basket contains items:', basket);
 empty();
 console.log('Expecting basket to be empty after executing empty function:', basket);
 // Testing out empty() function by logging basket before and after executing empty() function.
+
+function isFull(){
+    if (basket.length < maxItems){
+        return false;
+    }
+return true;
+}
+// End of isFull() function.
+
+console.log('Should show false if basket contents is less than maxItems:', isFull());
+addItem('pineapple');
+addItem('bread');
+addItem('grapes');
+addItem('milk');
+addItem('cheese');
+console.log('Should show true if basket contents is greater than or equal to maxItems:', isFull());
+// Testing out isFull() function to see if it returns false when basket is empty and true if full.
